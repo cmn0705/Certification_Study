@@ -1,6 +1,6 @@
 from flask import request, render_template,redirect,session
 import datetime,boto3,binascii
-import shar256 #check shar256.py
+from hashlib import sha512
 db = boto3.resource('dynamodb',region_name='us-east-1') # Real AWS service
 
 def client_register():
@@ -27,7 +27,7 @@ def client_register():
                 Item={
                 'client_id':binascii.crc32(request.form['email'].encode()) & 0xffffffff,
                 'email':request.form['email'],
-                'password':shar256.shar256(request.form['password1']),
+                'password':sha512(request.form['password1'].encode()).hexdigest(),
                 'first_name':request.form['first_name'],
                 'middle_name':request.form['middle_name'],
                 'last_name':request.form['last_name'],
