@@ -1,0 +1,33 @@
+{% extends "layout1.html" %}
+{% block y %}
+
+<header class="jumbotron">
+    <div class="container">
+        <div class="row row-header">
+            <div class="col-12 col-sm align-self-center"><img src="{{url_for('static', filename='logo.png')}}" height="240" width="320" class="img-fluid"></div>
+            <div class="col-12 col-sm-6">
+                <h1>Certification Study</h1>
+                <p>We provide practise questions and coaching one-on-one if you are interested in pursuing one of the certifications below:</p>
+                <li>AWS Cloud Practitioner</li>
+                <li>AWS Solutions Architect Associate</li><br>
+                <p style="color: pink;">Watch out for more offers in the future!</p>
+            </div>
+
+            {% if session['email'] and session['subject']=='client' %}
+            <div class="col-12 col-sm align-self-center">
+                <!-- ScheduleOnce button START -->
+                <button id="SOIBTN_AWSCloudPractitionerCoaching" style="background: #006DAF; color: #ffffff; padding: 10px 20px; border: 1px solid #c8c8c8; font: bold 14px Arial; cursor: pointer;" data-height="580" data-psz="00" data-so-page="AWSCloudPractitionerCoaching" data-delay="1">Book AWS CP Coach</button><br><br>
+                <button id="SOIBTN_AWSSolutionsArchitectAssociateCoaching" style="background: #006DAF; color: #ffffff; padding: 10px 20px; border: 1px solid #c8c8c8; font: bold 14px Arial; cursor: pointer;" data-height="580" data-psz="00" data-so-page="AWSSolutionsArchitectAssociateCoaching" data-delay="1">Book AWS SAA Coach</button>
+                <script type="text/javascript" src="https://cdn.oncehub.com/mergedjs/so.js"></script>
+                <!-- ScheduleOnce button END -->
+                <br><br><i>*When booking, please use {{session['email']}}*</i>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</header>
+
+<div class='container'><br>{% block y1 %}{% endblock %}<br></div>       
+
+{% endblock %}

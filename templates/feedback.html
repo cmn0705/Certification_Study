@@ -1,0 +1,29 @@
+{% extends "layout1.html" %}
+{% block y %}
+
+<header class="jumbotron">
+    <div class="container">
+        <div class="row row-header">
+            <div class="col-12 col-sm-10">
+                <li>Feedback on a coaching session</li>
+                <li>Feedback on a particular question with wrong answer or information</li>
+                <li>Feedback on styles and functionalities of this website</li>
+            </div>
+        </div>
+    </div>
+</header>
+<br>
+
+<div class='container'>
+    <h3 class="col-12">Your Feedback</h3>
+    <div class="col-12">
+    <form action="/feedback" method="POST">
+        <input class="col-4 col-md-3" type="text" name="email" id="email" placeholder='Email' value='{{ session['email'] if session['email'] else "" }}'><br><br>
+        <input class="col-4 col-md-3" type="text" name="tittle" id="tittle" placeholder="Tittle" required><br><br>
+        <textarea class="form-control" id="feedback" name="feedback" rows="12" placeholder='Feedback'></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+</div>
+
+{% endblock %}

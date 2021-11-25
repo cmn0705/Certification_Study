@@ -1,0 +1,49 @@
+{% extends "layout1.html" %}
+{% block y %}
+<div class='container'>
+    <h3 class="col-12">User Register</h3>
+    <div class="col-12">
+    <form action="/client_register" method="POST" onsubmit="return register_validation()">
+        <div class="form-group row">
+            <input class="col-4 col-md-4" type="email" name="email" id="email" placeholder="Email" required>
+            <input class="col-4 col-md-3" type="password" name="password1" id="password1" placeholder="Password" required>
+            <input class="col-4 col-md-3" type="password" name="password2" id="password2" placeholder="Confirm password" required>
+        </div>
+        <div class="form-group row">
+            <input class="col-4 col-md-4" type="text" name="first_name" id="first_name" placeholder="First Name" required>
+            <input class="col-4 col-md-3" type="text" name="middle_name" id="middle_name" placeholder="Middle Name">
+            <input class="col-4 col-md-3" type="text" name="last_name" id="last_name" placeholder="Last Name">
+        </div>
+        <div class="form-group row">
+            <input class="col-4 col-md-4" type="tel" name="phone" id="phone" placeholder="Phone xxx-xxx-xxxx" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+            <input class="col-4 col-md-3" list="genders" name="gender" placeholder="Gender">
+                <datalist id="genders">
+                    <option value="Female">
+                    <option value="Male">
+                    <option value="Other">
+                </datalist>
+            <input class="col-4 col-md-3" type="text" name="birthday" id="birthday" placeholder="Birthday mm/dd/yyyy" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}">
+        </div>
+        <div class="form-group row">
+            <input class="col-6 col-md-5" type="text" name="mailing_address" id="mailing_address" placeholder="Mailing Address">
+            <input class="col-6 col-md-5" type="text" name="apt_ste_bldg" id="apt_ste_bldg" placeholder="Apt., St., Bldg">
+        </div>
+        <div class="form-group row">
+            <input class='col-3 col-md-2' type="text" name="city" id="city" placeholder="City">
+            <input class='col-3 col-md-3' type="text" name="state" id="state" placeholder="State">
+            <input class='col-3 col-md-2' type="text" name="zip_code" id="zip_code" placeholder="Zip Code">
+            <input class='col-3 col-md-3' type="text" name="country" id="country" placeholder="Country">
+        </div>
+        <div class="form-group row">
+            <input class='col-12 col-md-10' list="certifications" name="certification" placeholder="Certification of Interest">
+                <datalist id="certifications">
+                    <option value="AWS Cloud Practitioner">
+                    <option value="AWS Solutions Architect Associate">
+                </datalist>
+        </div>
+        <input type="checkbox" name="accept_agreement" id="accept_agreement" required> <label>I accept the User Agreement and Privacy Policy</label><br><br>
+        <input type="submit" value="Complete">
+    </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layout2.html" %}
+{% block y1 %}
+
+<h1 align="center">Logged in as {{ name }} !</h1>
+<p align="center"><b>Focus:</b> {{ focus }}</p>
+<h5 align="center">Your appoinments:</h5>
+
+<table align="center">
+    <tr>
+      <th>Time</th>
+      <th>Duration</th>
+      <th>Coach</th>
+      <th>Join URL</th>
+    </tr>
+    {%for booking in bookings%}
+    <tr>
+    <td>{{booking[0][:19]}}</td>
+    <td>{{booking[1]}}</td>
+    <td>{{booking[2]}}</td>
+    <td><a href="{{booking[3]['join_url']}}">{{booking[3]['join_url']}}</a></td>
+    </tr>
+    {%endfor%}
+</table>
+
+
+
+<br>
+<br>
+
+<!-- ScheduleOnce embed START -->
+<div id="SOIDIV_AllCoachesCertificationStudy" data-so-page="AllCoachesCertificationStudy" data-height="550" data-style="border: 1px solid #d8d8d8; min-width: 290px; max-width: 900px;" data-psz="00"></div>
+<script type="text/javascript" src="https://cdn.oncehub.com/mergedjs/so.js"></script>
+<!-- ScheduleOnce embed END -->
+
+{% endblock %}

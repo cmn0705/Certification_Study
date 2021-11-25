@@ -1,0 +1,32 @@
+{
+    "serverlessConsole.services": [
+        {
+            "type": "dynamodb",
+            "title": "feedback",
+            "tableName": "feedback",
+            "awsProfile": "default",
+            "region": "us-east-1"
+        },
+        {
+            "type": "dynamodb",
+            "title": "aws_saa_questions",
+            "tableName": "aws_saa_questions",
+            "awsProfile": "default",
+            "region": "us-east-1"
+        },
+        {
+            "type": "dynamodb",
+            "title": "client",
+            "tableName": "client",
+            "awsProfile": "default",
+            "region": "us-east-1"
+        },
+        {
+            "type": "dynamodb",
+            "title": "coach",
+            "tableName": "coach",
+            "awsProfile": "default",
+            "region": "us-east-1"
+        }
+    ]
+}

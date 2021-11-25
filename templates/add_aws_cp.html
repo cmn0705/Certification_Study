@@ -1,0 +1,26 @@
+{% extends "layout1.html" %}
+{% block y %}
+
+<header class="jumbotron">
+    <div class='container'>
+        <div class="col-12 col-sm-10">
+            <li>Strongly recommend you to contribute the questions that you have answered wrongly from other sources</li>
+            <li>The server is capable of removing some duplicated and similar questions</li>
+            <li>If you logged in, you will be credited as contributor for the questions you posted</li>
+            <li><a href="/practice_aws_cp"><span class="fa fa-book"></span> Practice AWS CP</a></li>
+        </div>
+    </div>
+</header>
+<div class='container'>
+    <h4 class="col-12">Add to AWS Cloud Practitioner Questions Bank</h4>
+    <div class="col-12">
+    <form action="/add_aws_cp" method="POST">
+        <textarea class="form-control" id="question" name="question" rows="8" placeholder="Question"required></textarea><br>
+        <input class="col-4 col-md-3" type="text" name="answer" id="answer" placeholder="Answer" required><i> * If there are multiple selections, seperate them with comma, example: "A,B,C"</i>
+        <br><br>
+        <textarea class="form-control" id="explain" name="explain" rows="5" placeholder="Explain (Optional)"></textarea><br>
+        <input type="submit" value="Add to Questions Bank">
+    </form>
+    </div>
+</div>
+{% endblock %}

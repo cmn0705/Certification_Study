@@ -1,0 +1,24 @@
+{% extends "layout1.html" %}
+{% block y %}
+
+<h1 align="center">Hello {{ name }} !</h1>
+<h5 align="center">Your appoinments:</h5>
+
+<table align="center">
+    <tr>
+      <th>Time</th>
+      <th>Duration</th>
+      <th>Client</th>
+      <th>Join URL</th>
+    </tr>
+    {%for booking in bookings%}
+    <tr>
+    <td>{{booking[0][:19]}}</td>
+    <td>{{booking[1]}}</td>
+    <td>{{booking[2]}}</td>
+    <td><a href="{{booking[3]['join_url']}}">{{booking[3]['join_url']}}</a></td>
+    </tr>
+    {%endfor%}
+</table>
+
+{% endblock %}

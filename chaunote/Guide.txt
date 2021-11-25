@@ -1,0 +1,49 @@
+DEVELOPE APP
+
+- Create a appname folder
+- go to this folder from Terminal, and type the followings:
+
+virtualenv virt
+source virt/bin/activate
+pip install flask
+pip install boto3
+pip install Flask-Session
+pip install requests
+
+
+- write your codes in appname/application.py
+- run application locally with command:
+
+python application.py
+____________________________________________________________________________________________________________
+- Go to .aws folder (/.aws), make sure profile file contains the right AWS credentials
+- type the following commands to deploy on AWS:
+
+pip freeze > requirements.txt
+____________________________________________________________________________________________________________
+DEPLOY USING BEANSTALK
+
+pip install awsebcli
+echo virt > .ebignore
+eb init -p python-3.7 app --region us-east-1
+eb create chaupp
+eb open
+
+
+TERMINATE THE APP, DEACTIVE VIRTUAL ENVIRONMENT
+eb terminate
+deactivate
+____________________________________________________________________________________________________________
+DEPLOY USING AWS LAMBDA
+pip install zappa
+zappa init
+zappa deploy dev
+
+- if modify you codes:
+zappa update dev
+- shutdown app:
+zappa undeploy dev
+
+* Need a domain name/route53 to make this work, else zappa messes up the URLs by adding "/dev" element
+
+zappa certify dev

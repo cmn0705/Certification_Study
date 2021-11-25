@@ -1,0 +1,18 @@
+{% extends "layout2.html" %}
+{% block y1 %}
+
+<h1>Login</h1>
+
+<form action="/login" method="POST">
+    <input type="email" name="email" id="email" placeholder="Email" required><br><br>
+    <input type="password" name="password" id="password" placeholder="Password" required><br><br>
+    <select name='subject'>
+        <option value="client">User</option>
+        <option value="coach">Coach</option>
+    </select><br><br>
+    <input type="submit" value="Login"><br><br>
+</form>
+Forgot your password? <a type="button" href="/forgot_password">Reset Password</a><br>
+Need an account? <a type="button" href="/client_register">Register</a><br>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, width=device-width">
+        <link rel='stylesheet' type="text/css" href="{{ url_for('static', filename = 'bootstrap-social.css') }}">
+        <link rel='stylesheet' type="text/css" href="{{ url_for('static', filename = 'bootstrap.min.css') }}">
+        <link rel='stylesheet' type="text/css" href="{{ url_for('static', filename = 'css/font-awesome.min.css') }}">
+        <link rel='stylesheet' type="text/css" href="{{ url_for('static', filename = 'main.css') }}">
+
+        <script type="text/javascript" src="{{ url_for('static', filename = 'jquery.slim.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'popper.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'main.js') }}"></script>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title> Certification Study</title>
+	</head>
+	<body>
+
+        <nav class="navbar navbar-dark navbar-expand-sm bg-primary fixed-top">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar"><span class="navbar-toggler-icon"></span></button>        	
+                <div class="collapse navbar-collapse" id="Navbar"> 
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active"><a class="nav-link" href="/"><span class="fa fa-home fa-lg"></span> Home</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="/logout"><span class="fa fa-sign-out"></span> Logout</a></li>
+                        {% if session['email'] %}
+                            {% if session['subject']=='client' %}
+                        <li class="nav-item active" style="float: right"><a class="nav-link" href="/client_page"><span class="fa fa-user"></span> {{session['email']}}</a></li>
+                            {% else %}
+                        <li class="nav-item active" style="float: right"><a class="nav-link" href="/coach_page"><span class="fa fa-user"></span> {{session['email']}}</a></li>
+                            {% endif %}
+                        {% else %}
+                        <li class="nav-item active"><a class="nav-link" href="/login"><span class="fa fa-sign-in"></span> Login</a></li>
+                        {% endif %}             
+                    </ul>  
+                </div>         
+            </div>
+        </nav>
+
+        <br>{% block y %}{% endblock %}<br>
+
+        <footer class="footer">
+            <div class='container'>
+                <div class="col-12 col-sm-12 align-self-center text-center justify-content-center">
+                    <p>© Copyright 2021 Chau Minh Nguyen</p>
+                    <a class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/in/chau-nguyen-78136b1b1/"><i class="fa fa-linkedin"></i></a>
+                    <a class="btn btn-social-icon" href="mailto:cmn0705@gmail.com"><i class="fa fa-envelope-o"></i></a>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+</html>
