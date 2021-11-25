@@ -10,28 +10,32 @@ table, th, td {
 .row-header {
     margin: 0px auto;
     padding: 0px 0px; }
+
+body {
+  padding: 50px 0px 0px 0px;
+  z-index: 0;
+  margin:0;
+  height: 100%; 
+}
+
+.footer {
+  background-color: purple;
+  margin: 0px auto;
+  padding: 20px 0px;
+}
   
-  .footer {
-    background-color: purple;
-    margin: 0px auto;
-    padding: 20px 0px; }
+.jumbotron {
+  margin: 0px auto;
+  padding: 10px 10px;
+  background: purple;
+  color: floralwhite; }
   
-  .jumbotron {
-    margin: 0px auto;
-    padding: 10px 10px;
-    background: purple;
-    color: floralwhite; }
-  
-  body {
-    padding: 50px 0px 0px 0px;
-    z-index: 0; }
-  
-  .navbar-dark {
-    background-color: purple; }
-  
-  .tab-content {
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    padding: 10px; }
+.navbar-dark {
+  background-color: purple; }
+
+.tab-content {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px; }
   
