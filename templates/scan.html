@@ -1,0 +1,55 @@
+{% extends "layout1.html" %}
+{% block y %}
+
+<div class='container' style="min-height: 470px">
+    <form action="/scan" method="POST">
+
+        <select name="table">
+            <option value="aws_cp_questions">AWS CP
+            <option value="aws_saa_questions" selected>AWS SAA
+        </select>
+
+        <select name="attribute">
+            <option value="question" selected>Question
+            <option value="explain">Explain
+        </select>
+
+        <select name="operation">
+            <option value="begins_with">Begins With
+            <option value="eq">Equal
+            <option value="gt">Greater Than
+            <option value="gte">Greater Or Equal
+            <option value="lt">Less Than
+            <option value="lte">Less Or Equal
+            <option value="contains" selected>Contains
+            <option value="ne">Not Equal
+        </select>
+
+        <input type="text" name="value" placeholder="Value">
+
+        <input type="submit" value="Scan">
+    </form>
+    <br>
+    <form action="/delete" method="POST">
+        <select name="table">
+            <option value="aws_cp_questions">AWS CP Questions
+            <option value="aws_saa_questions" selected>AWS SAA Questions
+        </select>
+        <input type="text" name="id" placeholder="ID">
+        <input type="submit" value="Delete">
+    </form>
+
+    {%if items%}
+    {%if count%} <br><b>SHOWING {{ count }} RESULTS</b><br> {%endif%}
+    {% for item in items %}
+    <br>
+    <div class=com-text><b>{{item['id']}}: </b><br>{{ item['question'] }}</div>
+    <div class=com-text><b>Answer: </b>{{ item['answer'] }}</div>
+    {% if item['explain'] %}
+    <div class=com-text><b>Explain: </b>{{ item['explain'] }}</div>
+    {% endif %}
+    {% endfor %}
+    {%endif%}
+
+</div>
+{% endblock %}

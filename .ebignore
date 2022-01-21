@@ -1,1 +1,9 @@
 virt
+flask_session
+__pycache__
+.vscode
+.elasticbeanstalk
+.gitignore
+.ebignore
+.git
+chaunote

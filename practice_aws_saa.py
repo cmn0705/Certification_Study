@@ -13,9 +13,20 @@ def practice_aws_saa():
     explain=''
                
     if request.method=='GET':
-        list_id=db.Table('aws_saa_questions').scan(ProjectionExpression="id")['Items']
+        table=db.Table('aws_saa_questions')
+
+        list_id = []
+        response = table.scan(ProjectionExpression="id")
+        list_id.extend(response['Items'])
+
+        # bypass the 1M scan limit - pagination, this is not necessary for small table
+        while 'LastEvaluatedKey' in response:
+            response = table.scan(ProjectionExpression="id", ExclusiveStartKey=response['LastEvaluatedKey'])
+            list_id.extend(response['Items'])
+        # bypass end
+
         random_id=random.choice(list_id)['id']
-        random_question=db.Table('aws_saa_questions').get_item(Key={'id': random_id})['Item']
+        random_question=table.get_item(Key={'id': random_id})['Item']
         session['question']=random_question['question']
         session['answer']=random_question['answer']
         try: session['explain']=random_question['explain'] 

@@ -28,8 +28,9 @@ body {
   margin: 0px auto;
   padding: 10px 10px;
   background: purple;
-  color: floralwhite; }
-  
+  color: floralwhite;
+}
+
 .navbar-dark {
   background-color: purple; }
 
@@ -38,4 +39,3 @@ body {
   border-right: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   padding: 10px; }
-  

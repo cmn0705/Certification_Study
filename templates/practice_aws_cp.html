@@ -2,13 +2,11 @@
 {% block y %}
 
 <header class="jumbotron">
-    <div class='container'>
-    <div class="col-12 col-sm-10">
+    <div class='container col-12 col-sm-10'>
         <li><a href="/add_aws_cp"><span class="fa fa-plus"></span> Add AWS CP Questions</a></li>
     </div>
-    </div>
 </header>
-<div class='container'>
+<div class='container' style="min-height: 450px">
     <h4>Practice With {{session['num_aws_cp']}} AWS Cloud Practitioner Questions</h4><br>
 
     <div class=com-text>{{ session['question'] }}</div><br>
@@ -21,7 +19,7 @@
     <form action="/practice_aws_cp" method="GET"><input type="submit" value="Get Question"></form><br>
 
     <div>{{ notice }}</div><br>
-    <div class=com-text>{{explain}}</div>
+    <div class=com-text>{{explain}}</div><br>
     <div>Answered Total: {{session['answered_total']}}</div>
     <div>Answered Correct: {{session['answered_correct']}}</div>
 </div>

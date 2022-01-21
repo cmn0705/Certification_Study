@@ -13,9 +13,10 @@ def practice_aws_cp():
     explain=''
                
     if request.method=='GET':
-        list_id=db.Table('aws_cp_questions').scan(ProjectionExpression="id")['Items']
+        table=db.Table('aws_cp_questions')
+        list_id=table.scan(ProjectionExpression="id")['Items']
         random_id=random.choice(list_id)['id']
-        random_question=db.Table('aws_cp_questions').get_item(Key={'id': random_id})['Item']
+        random_question=table.get_item(Key={'id': random_id})['Item']
         session['question']=random_question['question']
         session['answer']=random_question['answer']
         try: session['explain']=random_question['explain'] 

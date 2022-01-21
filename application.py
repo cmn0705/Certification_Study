@@ -47,6 +47,10 @@ application.add_url_rule('/add_aws_saa',view_func=add_aws_saa.add_aws_saa,method
 
 import feedback
 application.add_url_rule('/feedback',view_func=feedback.feedback,methods=['get','post'])
+
+import scan
+application.add_url_rule('/scan',view_func=scan.scan,methods=['get','post'])
+application.add_url_rule('/delete',view_func=scan.delete,methods=['get','post'])
 # -----------------------------------------------------
 if __name__ == "__main__":
     application.run(debug=True, use_reloader=True)
