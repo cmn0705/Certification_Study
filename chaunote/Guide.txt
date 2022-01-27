@@ -30,7 +30,7 @@ eb create chaupp
 eb open
 
 
-TERMINATE THE APP, DEACTIVE VIRTUAL ENVIRONMENT
+TERMINATE THE ENVIRONMENT, DEACTIVE VIRTUAL ENVIRONMENT
 eb terminate
 deactivate
 ____________________________________________________________________________________________________________
@@ -47,3 +47,12 @@ zappa undeploy dev
 * Need a domain name/route53 to make this work, else zappa messes up the URLs by adding "/dev" element
 
 zappa certify dev
+____________________________________________________________________________________________________________
+DEVELOPE ENVIRONMENT (revisit)
+virtualenv virt
+source virt/bin/activate
+python application.py
+____________________________________________________________________________________________________________
+DEPLOYMENT (update environment)
+eb terminate
+eb create chaupp

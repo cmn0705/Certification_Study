@@ -8,6 +8,7 @@ def logout():
     session['explain']=None
     session['num_aws_cp']=None
     session['num_aws_saa']=None
+    session['num_aws_mls']=None
     session['answered_total']=None
     session['answered_correct']=None
     return redirect("/")

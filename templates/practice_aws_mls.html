@@ -1,0 +1,29 @@
+{% extends "layout1.html" %}
+{% block y %}
+
+<header class="jumbotron">
+    <div class="container col-12 col-sm-10">
+        <li><a href="/add_aws_mls"><span class="fa fa-plus"></span> Add AWS MLS Questions</a></li>
+    </div>
+</header>
+<div class='container' style="min-height: 450px">
+    <h4>Practice With {{session['num_aws_mls']}} AWS Machine Learning Specialty Questions</h4><br>
+
+    <div class=com-text>{{ session['question'] }}</div><br>
+
+    <form action="/practice_aws_mls" method="POST">
+        <input type='text' name='answer' placeholder="Your Answer" required>
+        <input type="submit" value="Submit"><i> * If there are multiple selections, seperate them with comma, example: "a,b,c"</i>
+    </form><br>
+
+    <form action="/practice_aws_mls" method="GET"><input type="submit" value="Get Question"></form><br>
+
+    <div>{{ notice }}</div><br>
+    <div class=com-text>{{explain}}</div><br>
+    <b>Score: {{session['answered_correct']}} / {{session['answered_total']}}</b><br>
+    {% if session['answered_total']>0 %}
+    <b>{{session['answered_correct']*100 / session['answered_total']}} %</b>
+    {% endif %}
+
+</div>
+{% endblock %}

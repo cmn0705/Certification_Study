@@ -39,11 +39,17 @@ application.add_url_rule('/practice_aws_cp',view_func=practice_aws_cp.practice_a
 import practice_aws_saa
 application.add_url_rule('/practice_aws_saa',view_func=practice_aws_saa.practice_aws_saa,methods=['get','post'])
 
+import practice_aws_mls
+application.add_url_rule('/practice_aws_mls',view_func=practice_aws_mls.practice_aws_mls,methods=['get','post'])
+
 import add_aws_cp
 application.add_url_rule('/add_aws_cp',view_func=add_aws_cp.add_aws_cp,methods=['get','post'])
 
 import add_aws_saa
 application.add_url_rule('/add_aws_saa',view_func=add_aws_saa.add_aws_saa,methods=['get','post'])
+
+import add_aws_mls
+application.add_url_rule('/add_aws_mls',view_func=add_aws_mls.add_aws_mls,methods=['get','post'])
 
 import feedback
 application.add_url_rule('/feedback',view_func=feedback.feedback,methods=['get','post'])
